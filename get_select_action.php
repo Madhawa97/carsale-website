@@ -32,6 +32,7 @@ if ($result -> num_rows > 0) {
         echo "<p>" . $row['price']. "</p>" ;
         echo "<p>" . $row['description']. "</p>" ;
         echo "<p>" . $row['image']. "</p>" ;
+        echo "<img src='". $row['image'] ."' alt='car_image'>";
         echo "<p>" . $row['f_name']. " ". $row['l_name']. "</p>" ;
         // echo "<p>" . $row['l_name']. "</p>" ;
         echo "<p>" . $row['email']. "</p>" ;

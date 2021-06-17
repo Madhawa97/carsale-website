@@ -2,7 +2,7 @@
     session_start();
 ?>
 <h1>Enter car details</h1>
-<form action="car_info_action.php" method="POST">
+<form action="car_info_action.php" method="POST" enctype="multipart/form-data">
     brand:
     <input type="text" name="brand"><br><br>
     model:
@@ -20,7 +20,8 @@
     description:
     <textarea name="description"></textarea><br><br>
     image:
-    <input type="text" name="image">
+    <input type="file" name="image">
+    <button type="submit" name="submit">Upload</button>
     <br><br>
-    <input type="submit" value="Submit">
+    <!-- <input type="submit" value="Submit"> -->
 </form>

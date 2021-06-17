@@ -37,7 +37,7 @@ if ($result_2 -> num_rows > 0) {
         echo "<td>". $row['car_condition'] ."</td>";
         echo "<td>". $row['price'] ."</td>";
         echo "<td>". $row['description'] ."</td>";
-        echo "<td>". $row['image'] ."</td>";
+        echo "<td><img src='". $row['image'] ."' alt='car_image'></td>";
         echo "</tr>";
         echo "</table>";
         echo "</div>";
