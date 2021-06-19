@@ -1,24 +1,14 @@
 <?php
-
 session_start();
 
-// require("connection.php");
-
-$servername = "localhost";
-$username = "root";
-$pass = "root";
-$dbname = "car_sale";
-
-// Create connection
-$conn = new mysqli($servername, $username, $pass, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+require_once("cont/connection.php");
+require_once("cont/header.php");
 
 //--- see if the user is exists
 $sql = "SELECT email from car_owners WHERE email = '$_POST[email]' " ; 
 $result = $conn->query($sql);
+
+echo "<div class='alert-box' >";
 
 if ($result -> num_rows > 0) {
     echo "Couldn't create account. You're already registered with this email.";
@@ -27,14 +17,16 @@ if ($result -> num_rows > 0) {
     //---- data insert part
     $sql_2 = "INSERT INTO car_owners (f_name,l_name,nic,city,email,password) VALUES('$_POST[first_name]','$_POST[last_name]','$_POST[nic]','$_POST[city]','$_POST[email]','$_POST[password]')";
     if ($conn->query($sql_2) === TRUE) {
-        echo "New record created successfully! Thank You for registering with Us !";	
-            
+        echo "<p>Registered successfully!</p>";
+        echo "<a class='btn btn-full' href='login_test.php'>Continue to Login</a>"; 
     } else {
-        echo "Error: " . $sql_2 . "<br>" . $conn->error;
-    }
+        echo "Error: " . $sql_2 . "<br>" . $conn->error;    }
     //---- end of data insert
 
 }
 
+echo "</div>";
+
+require_once("cont/footer.php");
 $conn->close();
 ?>

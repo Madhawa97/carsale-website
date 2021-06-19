@@ -1,23 +1,9 @@
 <?php
-//To start session
-		// if(!isset($_SESSION)){
 session_start();
-
-// require("connection.php");
-
-$servername = "localhost";
-$username = "root";
-$pass = "root";
-$dbname = "car_sale";
-
-// Create connection
-$conn = new mysqli($servername, $username, $pass, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
+require_once("cont/connection.php");
+require_once("cont/header_strip.php");
 // ------------------------------------------------------------------------
+
 
 $user_email = $_SESSION["u_email"];
 $user_password = $_SESSION["u_password"];
@@ -46,6 +32,7 @@ if ($result_2 -> num_rows > 0) {
     echo "Error getting your car list";
 }
 
-$conn->close();
 
+require_once("cont/footer.php");
+$conn->close();
 ?>

@@ -1,6 +1,7 @@
 <?php
     session_start();
 ?>
+<?php require_once('cont/header.php'); ?>
 <h1>Enter car details</h1>
 <form action="car_info_action.php" method="POST" enctype="multipart/form-data">
     brand:
@@ -25,3 +26,4 @@
     <br><br>
     <!-- <input type="submit" value="Submit"> -->
 </form>
+<?php require_once('cont/footer.php'); ?>

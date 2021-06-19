@@ -1,21 +1,8 @@
 <?php
-//To start session
-		// if(!isset($_SESSION)){
 session_start();
+require_once("cont/connection.php");
+require_once("cont/header_strip.php");
 
-// require("connection.php");
-
-$servername = "localhost";
-$username = "root";
-$pass = "root";
-$dbname = "car_sale";
-
-// Create connection
-$conn = new mysqli($servername, $username, $pass, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
 
 $user_email = $_SESSION["u_email"];
 $user_password = $_SESSION["u_password"];
@@ -65,6 +52,7 @@ if ($result -> num_rows > 0) {
     echo "Error getting member_ID";
 }
 
+require_once("cont/footer.php");
 $conn->close();
 
 ?>

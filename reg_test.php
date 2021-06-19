@@ -1,7 +1,10 @@
 <?php
     session_start();
 ?>
-<h1>Register for Members</h1>
+<?php require_once('cont/header.php'); ?>
+
+<div class="alert-box">
+<h1>Register</h1>
 <form action="reg_action_test.php" method="POST">
     first name:
     <input type="text" name="first_name"><br><br>
@@ -16,6 +19,8 @@
     Password:
     <input type="password" name="password">
     <br><br>
-    <input type="submit" value="Register">
+    <input class="btn btn-full" type="submit" value="Register">
 
 </form>
+</div>
+<?php require_once('cont/footer.php'); ?>

@@ -1,17 +1,7 @@
 <?php
 session_start();
-
-$servername = "localhost";
-$username = "root";
-$pass = "root";
-$dbname = "car_sale";
-
-// Create connection
-$conn = new mysqli($servername, $username, $pass, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+require_once('cont/connection.php');
+require_once('cont/header.php');
 // ------------------------------------------------------------------------
 
 $_SESSION["brand"] = $_POST["brand"];
@@ -43,4 +33,6 @@ if ($result -> num_rows > 0) {
     echo "Error getting car_info";
 }
 
+require_once('cont/footer.php');
+$conn->close();
 ?>

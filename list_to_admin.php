@@ -1,22 +1,7 @@
 <?php
-//To start session
-		// if(!isset($_SESSION)){
 session_start();
-
-// require("connection.php");
-
-$servername = "localhost";
-$username = "root";
-$pass = "root";
-$dbname = "car_sale";
-
-// Create connection
-$conn = new mysqli($servername, $username, $pass, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
+require_once("cont/connection.php");
+require_once("cont/header_strip.php");
 // ------------------------------------------------------------------------
 
 $user_email = $_SESSION["u_email"];
@@ -56,21 +41,6 @@ if ($result -> num_rows > 0) {
         }
         echo "</table>";
 
-        /* echo "<h1>Member List</h1>";
-        while ($row = $result_2 -> fetch_assoc()) {
-            echo "<div>";
-            echo "<table style='border : 1px solid black'>";
-            echo "<tr>";
-            echo "<td>". $row['member_id'] ."</td>";
-            echo "<td>". $row['f_name'] ."</td>";
-            echo "<td>". $row['l_name'] ."</td>";
-            echo "<td>". $row['nic'] ."</td>";
-            echo "<td>". $row['city'] ."</td>";
-            echo "<td>". $row['email'] ."</td>";
-            echo "</tr>";
-            echo "</table>";
-            echo "</div>"; */
-        // }
     } else {
         echo "Error getting member's list";
     }
@@ -79,7 +49,7 @@ if ($result -> num_rows > 0) {
     echo "Admin authentication error";
 }
 
-
+require_once("cont/footer.php");
 $conn->close();
 
 ?>
