@@ -1,11 +1,20 @@
 <?php
-session_start();
+// session_start();
 
 require_once("cont/connection.php");
 require_once("cont/header.php");
 
 //--- see if the user is exists
-$sql = "SELECT email from car_owners WHERE email = '$_POST[email]' " ; 
+// $temp_email = $_POST["email"];
+$first_name = addslashes($_POST["first_name"]);
+$last_name = addslashes($_POST["last_name"]);
+$nic = addslashes($_POST["nic"]);
+$city = addslashes($_POST["city"]);
+// $email = addslashes($email_temp);
+$password = addslashes($_POST["password"]);
+$email = addslashes($_POST["email"]);
+
+$sql = "SELECT email from car_owners WHERE email = '$email' " ; 
 $result = $conn->query($sql);
 
 echo "<div class='alert-box' >";
@@ -20,15 +29,25 @@ if ($result -> num_rows > 0) {
     // echo "Couldn't create account. You're already registered with this email.";
     
 } else {
-    //---- data insert part
-    $_first_name = addslashes($_POST[first_name]);
-    $_last_name = addslashes($_POST[last_name]);
-    $_nic = addslashes($_POST[nic]);
-    $_city = addslashes($_POST[city]);
-    $_email = addslashes($_POST[email]);
-    $_password = addslashes($_POST[password]);
+    //---- data insert part-----------------------------
+    // $first_name_temp = $_POST["first_name"];
+    // $last_name_temp = $_POST["last_name"];
+    // $nic_temp = $_POST["nic"];
+    // $city_temp = $_POST["city"];
+    // // $email_temp = $_POST["email"];
+    // $password_temp = $_POST["password"];
 
-    $sql_2 = "INSERT INTO car_owners (f_name,l_name,nic,city,email,password) VALUES('$_first_name','$_last_name','$_nic','$_city','$_email','$_password')";
+    // $first_name = addslashes($_POST["first_name"]);
+    // $last_name = addslashes($_POST["last_name"]);
+    // $nic = addslashes($_POST["nic"]);
+    // $city = addslashes($_POST["city"]);
+    // // $email = addslashes($email_temp);
+    // $password = addslashes($_POST["password"]);
+
+    $sql_2 = "INSERT INTO car_owners (f_name,l_name,nic,city,email,password) VALUES('$first_name','$last_name','$nic','$city','$email','$password')";
+    // $sql_2 = "INSERT INTO car_owners (f_name,l_name,nic,city,email,password) VALUES('$_POST[first_name]','$_POST[last_name]','$_POST[nic]','$_POST[city]','$_POST[email]','$_POST[password]')";
+
+
     if ($conn->query($sql_2) === TRUE) {
         echo "<div class=\"form\"><div class=\"title\">Account Created.</div>";
         echo "

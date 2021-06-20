@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 require_once("cont/connection.php");
 
 $sql = "SELECT DISTINCT brand FROM car_info ";
@@ -13,7 +13,7 @@ $brand_list = "";
 
 <?php 
 
-if (isset($_SESSION)){
+if (isset($_SESSION["u_email"])){
     $user_email = $_SESSION["u_email"];
     $user_password = $_SESSION["u_password"];
 

@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 require_once("cont/connection.php");
 require_once("cont/header_strip.php");
 
@@ -36,11 +36,12 @@ if (isset($_POST['submit'])){
             }
 
             //-----------add slashes before quotes----------------
-            $_description = addslashes($_POST[description]);
-            $_model = addslashes($_POST[model]);
-            $_brand = addslashes($_POST[brand]);
+            $_description = addslashes($_POST["description"]);
+            $_model = addslashes($_POST["model"]);
+            $_brand = addslashes($_POST["brand"]);
 
-            $sql_2 = "INSERT INTO car_info (car_member_id,brand,model,car_condition,price,description,image) VALUES($mem_id,'$_brand','$_model','$_POST[car_cond]','$_POST[price]','$_description', '$path')";
+            // $sql_2 = "INSERT INTO car_info (car_member_id,brand,model,car_condition,price,description,image) VALUES($mem_id,'$_brand','$_model','$_POST[car_cond]','$_POST[price]','$_description', '$path')";
+            $sql_2 = "INSERT INTO car_info (car_member_id,brand,model,car_condition,price,description,image) VALUES($mem_id,'$brand','$model','$_POST[car_cond]','$_POST[price]','$description', '$path')";
 
             if ($conn->query($sql_2) === TRUE) {
                 echo "<div class=\"form\"><div class=\"title\">Information added successfully.</div>";

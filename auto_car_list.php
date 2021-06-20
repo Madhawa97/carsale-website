@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 require_once("cont/connection.php");
 // ------------------------------------------------------------------------
 
@@ -38,5 +38,5 @@ if ($result -> num_rows > 0) {
 }
 
 echo "</div>";
-$conn->close();
+// $conn->close();
 ?>

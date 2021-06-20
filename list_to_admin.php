@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 require_once("cont/connection.php");
 require_once("cont/header_admin.php");
 // ------------------------------------------------------------------------
