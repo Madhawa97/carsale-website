@@ -32,12 +32,15 @@ if (isset($_POST['submit'])){
     if ($result -> num_rows > 0) {
             // output data of each row
             while ($row = $result -> fetch_assoc()) {
-                // echo "<div>";
-                // echo "<h1>" . $row['member_id']. "</h1>" ;
-                // echo "</div>";
                 $mem_id = $row['member_id'];
             }
-            $sql_2 = "INSERT INTO car_info (car_member_id,brand,model,car_condition,price,description,image) VALUES($mem_id,'$_POST[brand]','$_POST[model]','$_POST[car_cond]','$_POST[price]','$_POST[description]', '$path')";
+
+            //-----------add slashes before quotes----------------
+            $_description = addslashes($_POST[description]);
+            $_model = addslashes($_POST[model]);
+            $_brand = addslashes($_POST[brand]);
+
+            $sql_2 = "INSERT INTO car_info (car_member_id,brand,model,car_condition,price,description,image) VALUES($mem_id,'$_brand','$_model','$_POST[car_cond]','$_POST[price]','$_description', '$path')";
 
             if ($conn->query($sql_2) === TRUE) {
                 echo "<div class=\"form\"><div class=\"title\">Information added successfully.</div>";
@@ -48,10 +51,11 @@ if (isset($_POST['submit'])){
                 echo "</div>";
                 // echo "Car record added successfully!";
             } else {
-                echo "<div class=\"form\"><div class=\"title\">Error occurred, Try Login in again.</div>";
+                echo "<div class=\"form\"><div class=\"title\">Invalid Input, Try again.</div>";
                 echo "
-                    <form action=\"login_test.php\" method=\"GET\">
-                        <input class=\"submit ic1\" type=\"submit\" value=\"Login\">
+                    <div class=\"subtitle\">Make sure you don't have any quotation marks inserted.</div>
+                    <form action=\"car_info.php\" method=\"GET\">
+                        <input class=\"submit ic1\" type=\"submit\" value=\"Go Back\">
                     </form>";
                 echo "</div>";
                 // echo "Error adding Car: " . $sql . "<br>" . $conn->error;

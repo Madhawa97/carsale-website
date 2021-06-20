@@ -27,7 +27,9 @@ if ($result -> num_rows > 0) {
     }
 } else {
     echo "<div class=\"form\"><div class=\"title\">No cars listed.</div>";
+    
     echo "
+        <div class=\"subtitle\">Login as a member to add cars.</div>
         <form action=\"login_test.php\" method=\"GET\">
             <input class=\"submit ic1\" type=\"submit\" value=\"Login\">
         </form>";

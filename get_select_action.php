@@ -13,21 +13,24 @@ $user_model = $_SESSION["model"];
 $sql = "SELECT * FROM car_info JOIN car_owners ON car_member_id = member_id WHERE brand='$user_brand' AND model='$user_model' ";
 $result = $conn->query($sql);
 
+echo "<div class='card-container' >";
 if ($result -> num_rows > 0) {
     while ($row = $result -> fetch_assoc()) {
-        echo "<div>";
-        echo "<p>" . $row['brand']. "</p>" ;
-        echo "<p>" . $row['model']. "</p>" ;
-        echo "<p>" . $row['car_condition']. "</p>" ;
-        echo "<p>" . $row['price']. "</p>" ;
-        echo "<p>" . $row['description']. "</p>" ;
-        echo "<p>" . $row['image']. "</p>" ;
-        echo "<img src='". $row['image'] ."' alt='car_image'>";
-        echo "<p>" . $row['f_name']. " ". $row['l_name']. "</p>" ;
-        // echo "<p>" . $row['l_name']. "</p>" ;
-        echo "<p>" . $row['email']. "</p>" ;
+        echo "<div class='card' >";
+        echo "  <div class='card-image'>";
+        echo "    <img src='". $row['image'] ."' alt='car_image'>";
+        echo "  </div>";
+        echo "  <div class='card-text'>";
+        echo "      <span>" . $row['car_condition']. "</span>" ;
+        echo "      <h2>" . $row['brand']. " " . $row['model']. "</h2>" ;
+        echo "      <p>" . $row['description']. "</p>" ;
+        echo "      <p> Owned by : " . $row['f_name']. " ". $row['l_name']. "</p>" ;
+        echo "      <p>" . $row['email']. "</p>" ;
+        echo "  </div>";
+        echo "  <div class='card-stats'>";
+        echo "      <p>Rs : " . $row['price']. "</p>" ;
+        echo "  </div>";
         echo "</div>";
-        
     }
 } else {
     // echo "<div class=\"form\"><div class=\"title\">No cars listed.</div>";
@@ -36,8 +39,15 @@ if ($result -> num_rows > 0) {
     //         <input class=\"submit ic1\" type=\"submit\" value=\"Login\">
     //     </form>";
     // echo "</div>";
-    echo "Error getting car_info";
+    echo "<div class=\"form\"><div class=\"title\">No cars listed.</div>";
+    echo "
+        <form action=\"index.php\" method=\"GET\">
+            <input class=\"submit ic1\" type=\"submit\" value=\"Search Again\">
+        </form>";
+    echo "</div>";
+    // echo "Error getting car_info";
 }
+echo "</div>";
 
 require_once('cont/footer.php');
 $conn->close();

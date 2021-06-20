@@ -40,6 +40,7 @@ if ($result->num_rows > 0) {
             </form>";
         echo "</div>";
     }
+    
 }
 
 require_once("cont/footer.php");

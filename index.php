@@ -13,50 +13,54 @@ $brand_list = "";
 
 <?php 
 
-$user_email = $_SESSION["u_email"];
-$user_password = $_SESSION["u_password"];
+if (isset($_SESSION)){
+    $user_email = $_SESSION["u_email"];
+    $user_password = $_SESSION["u_password"];
 
-$sql = "SELECT email, password FROM admins WHERE email='$user_email' AND password='$user_password' ";
-$result = $conn->query($sql);
+    $sql = "SELECT email, password FROM admins WHERE email='$user_email' AND password='$user_password' ";
+    $result = $conn->query($sql);
 
-$sql_2 = "SELECT email, password FROM car_owners WHERE email='$user_email' AND password='$user_password' ";
-$result_2 = $conn->query($sql_2);
+    $sql_2 = "SELECT email, password FROM car_owners WHERE email='$user_email' AND password='$user_password' ";
+    $result_2 = $conn->query($sql_2);
 
-if ($result -> num_rows > 0) {
-    require_once('cont/header_admin.php');
-} else {
-    if ($result_2 -> num_rows > 0) {
-        require_once('cont/header_strip.php');
+    if ($result -> num_rows > 0) {
+        require_once('cont/header_admin.php');
     } else {
-        require_once('cont/header.php');
+        if ($result_2 -> num_rows > 0) {
+            require_once('cont/header_strip.php');
+        } else {
+            require_once('cont/header.php');
+        }
     }
-
-    // require_once('cont/header.php');
+} else {
+    require_once('cont/header.php');
 }
+
+
 
 ?>
 
     <section>
         <div class="form">
-        <div class="title">Search Cars.</div>
+        <div class="section-title" id="search-title-top" >Search Cars</div>
         <form action="get_select_action.php" method="post">
-            <div class="input-container ic1">
-            <div class="select">
+            <div class="select ic1" id="select-dropdown">
+            <!-- <div class="select"> -->
                 <!-- <label for="brand">Select Brand:</label> -->
                 <select required name="brand" id="brand">
                     <option value="" disabled selected hidden>Select Brand</option>
                     <?php echo $brand_list; ?>
                 </select>
+            <!-- </div> -->
             </div>
-            </div>
-            <div class="select">
+            <div class="select ic2" id="select-dropdown">
                 <!-- <label for="model">Select Model:</label> -->
                 <select required name="model" id="model">
                     <option value="" disabled selected hidden>Select Model</option>
                     
                 </select>
             </div>
-            <input class="submit" type="submit" value="Search">
+            <input id="search-submit" class="submit" type="submit" value="Search">
         </form>
         </div>
     </section>

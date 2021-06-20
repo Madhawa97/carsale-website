@@ -42,11 +42,24 @@ if ($result -> num_rows > 0) {
         echo "</table>";
 
     } else {
-        echo "Error getting member's list";
+        echo "<div class=\"form\"><div class=\"title\">Error getting member list.</div>";
+        echo "
+            <div class=\"subtitle\">Database may be empty.</div>
+            <form action=\"login_test.php\" method=\"GET\">
+                <input class=\"submit ic1\" type=\"submit\" value=\"Login\">
+            </form>";
+        echo "</div>";
+        // echo "Error getting member's list";
     }
 
 } else {
-    echo "Admin authentication error";
+    echo "<div class=\"form\"><div class=\"title\">Admin authentication error.</div>";
+    echo "
+        <form action=\"login_test.php\" method=\"GET\">
+            <input class=\"submit ic1\" type=\"submit\" value=\"Login\">
+        </form>";
+    echo "</div>";
+    // echo "Admin authentication error";
 }
 
 require_once("cont/footer.php");

@@ -21,7 +21,14 @@ if ($result -> num_rows > 0) {
     
 } else {
     //---- data insert part
-    $sql_2 = "INSERT INTO car_owners (f_name,l_name,nic,city,email,password) VALUES('$_POST[first_name]','$_POST[last_name]','$_POST[nic]','$_POST[city]','$_POST[email]','$_POST[password]')";
+    $_first_name = addslashes($_POST[first_name]);
+    $_last_name = addslashes($_POST[last_name]);
+    $_nic = addslashes($_POST[nic]);
+    $_city = addslashes($_POST[city]);
+    $_email = addslashes($_POST[email]);
+    $_password = addslashes($_POST[password]);
+
+    $sql_2 = "INSERT INTO car_owners (f_name,l_name,nic,city,email,password) VALUES('$_first_name','$_last_name','$_nic','$_city','$_email','$_password')";
     if ($conn->query($sql_2) === TRUE) {
         echo "<div class=\"form\"><div class=\"title\">Account Created.</div>";
         echo "
