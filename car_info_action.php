@@ -22,6 +22,9 @@ if ($result -> num_rows > 0) {
         $sql_2 = "INSERT INTO car_info (car_member_id,brand,model,car_condition,price,description,image) VALUES($mem_id,'$_POST[brand]','$_POST[model]','$_POST[car_cond]','$_POST[price]','$_POST[description]', '$path')";
 
         if ($conn->query($sql_2) === TRUE) {
+
+            //--------------------alert box needed------//
+
             echo "Car record added successfully!";
         } else {
             echo "Error adding Car: " . $sql . "<br>" . $conn->error;

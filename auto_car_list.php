@@ -7,7 +7,6 @@ $sql = "SELECT * FROM car_info JOIN car_owners ON car_member_id = member_id ";
 $result = $conn->query($sql);
 
 echo "<div class='card-container' >";
-echo "<form></form>";
 if ($result -> num_rows > 0) {
     while ($row = $result -> fetch_assoc()) {
         echo "<div class='card' >";

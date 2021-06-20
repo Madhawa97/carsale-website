@@ -86,15 +86,24 @@ nav {
 }
 
 
+/*--------------------------main-------------------------------*/
+main {
+  display: flex;
+  flex-direction: column;
+  max-width: 1140px;
+  margin : 0 auto ;
+}
+
 
 /*---------------------------start of card---------------------------*/
 .card-container {
 	display: flex;
-	/*align-items: center;*/
-	justify-content: space-between;
-	max-width: 1140px;
-    /*margin : 0 auto ;*/
-    flex-wrap: wrap;
+	/* align-items: center; */
+	/* justify-content: space-between; */
+  justify-content: center;
+	/* max-width: 1140px; */
+  /* margin : 0 auto ; */
+  flex-wrap: wrap;
 
 }
 
@@ -232,7 +241,7 @@ header {
 }
 
 footer {
-  	flex-shrink: 0;
+  flex-shrink: 0;
 }
 
 main {
@@ -240,7 +249,11 @@ main {
 }
 
 /*-----------------------aleart box---------------------------*/
-.alert-box {
+
+
+
+
+/* .alert-box {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -259,14 +272,14 @@ main {
 }
 
 
-.btn:link,         /*make buttons states -----------pseudo classes------*/
+.btn:link,
 .btn:visited {
-    display: inline-block;      /**/
+    display: inline-block;
     padding: 10px 30px;
     font-weight: 300;
-    text-decoration: none;     /*get rid of link underline*/
-    border-radius: 100px;      /*round corner*/
-    transition: background-color 0.2s, border 0.2s, color 0.2s;   /*transition*/
+    text-decoration: none;
+    border-radius: 100px;      
+    transition: background-color 0.2s, border 0.2s, color 0.2s;
 }
 
 .btn:hover,
@@ -277,18 +290,116 @@ main {
 .btn-full:link,
 .btn-full:visited {
     background-color: #42a6bd;
-    border: 1px solid #42a6bd;   /*make both buttons same height*/
+    border: 1px solid #42a6bd;   
     color: #fff;
     margin-right: 15px;
 }
 
 .btn-full:hover,
 .btn-full:active {
-    border: 1px solid #6dd5ed;   /*make both buttons same height*/
-}
+    border: 1px solid #026277;
+} */
+
 
 
 /*-----------------------------forms-----------------------------------------*/
+
+.form {
+  /* background-color: #141E30; */
+  background: #141E30;
+	background: -webkit-linear-gradient(to right, #243B55, #141E30);
+	background: linear-gradient(to right, #243B55, #141E30);
+  border-radius: 20px;
+  box-sizing: border-box;
+  height: fitcontent;
+  padding: 30px;
+  width: 500px;
+  margin-top: 50px;
+}
+
+.title {
+  color: #eee;
+  font-family: Roboto;
+  font-size: 24px;
+  font-weight: 300;
+  margin-top: 20px;
+}
+
+.subtitle {
+  color: #eee;
+  font-family: sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  margin-top: 10px;
+}
+
+.input-container {
+  height: 50px;
+  position: relative;
+  width: 100%;
+}
+
+.ic1 {
+  margin-top: 40px;
+}
+
+.ic2 {
+  margin-top: 30px;
+}
+
+.input {
+  background-color: #000;
+  border-radius: 12px;
+  border: 0;
+  box-sizing: border-box;
+  color: #eee;
+  font-size: 14px;
+  height: 100%;
+  outline: 0;
+  padding: 4px 20px 0;
+  width: 100%;
+}
+
+.cut-short {
+  width: 50px;
+}
+
+
+.placeholder {
+  color: #65657b;
+  /* font-family: Roboto; */
+  left: 20px;
+  line-height: 14px;
+  pointer-events: none;
+  position: absolute;
+  transform-origin: 0 50%;
+  transition: transform 200ms, color 200ms;
+  top: 20px;
+}
+
+.input:focus ~ .placeholder,
+.input:not(:placeholder-shown) ~ .placeholder {
+  transform: translateY(-40px) translateX(0px) scale(0.75);
+}
+
+.submit {
+  background-color: #2594ad;
+  border-radius: 12px;
+  border: 0;
+  box-sizing: border-box;
+  color: #eee;
+  cursor: pointer;
+  font-size: 18px;
+  height: 50px;
+  margin-top: 38px;
+  /* outline: 0; */
+  text-align: center;
+  width: 100%;
+}
+
+.submit:active {
+  background-color: #6dd5ed;
+}
 
 
 

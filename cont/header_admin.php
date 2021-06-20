@@ -22,8 +22,7 @@
                 </div>
                 <ul class="main-nav">
                     <li><a href="index.php">Home</a> </li>
-                    <li><a href="list_to_member.php">My Listed Cars</a> </li>
-                    <li><a href="car_info.php">Sell a Car</a> </li>
+                    <li><a href="list_to_admin.php">Member List</a> </li>
                     <li><a href="logout_action_test.php">Logout</a> </li>
                     <!-- <li><a href="#">Education</a> </li> -->
                     <!-- <li><a href="#">Skills</a> </li> -->

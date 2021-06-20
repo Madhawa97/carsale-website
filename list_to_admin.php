@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once("cont/connection.php");
-require_once("cont/header_strip.php");
+require_once("cont/header_admin.php");
 // ------------------------------------------------------------------------
 
 $user_email = $_SESSION["u_email"];
