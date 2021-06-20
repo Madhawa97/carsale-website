@@ -37,23 +37,28 @@ if ($result -> num_rows > 0) {
 ?>
 
     <section>
+        <div class="form">
+        <div class="title">Search Cars.</div>
         <form action="get_select_action.php" method="post">
-            <div>
-                <label for="brand">Select Brand:</label>
+            <div class="input-container ic1">
+            <div class="select">
+                <!-- <label for="brand">Select Brand:</label> -->
                 <select required name="brand" id="brand">
                     <option value="" disabled selected hidden>Select Brand</option>
                     <?php echo $brand_list; ?>
                 </select>
             </div>
-            <div>
-                <label for="model">Select Model:</label>
+            </div>
+            <div class="select">
+                <!-- <label for="model">Select Model:</label> -->
                 <select required name="model" id="model">
                     <option value="" disabled selected hidden>Select Model</option>
                     
                 </select>
             </div>
-            <input type="submit" value="Search">
+            <input class="submit" type="submit" value="Search">
         </form>
+        </div>
     </section>
 
     <br><br>

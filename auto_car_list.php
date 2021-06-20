@@ -26,7 +26,13 @@ if ($result -> num_rows > 0) {
         echo "</div>";
     }
 } else {
-    echo "Error getting car_info";
+    echo "<div class=\"form\"><div class=\"title\">No cars listed.</div>";
+    echo "
+        <form action=\"login_test.php\" method=\"GET\">
+            <input class=\"submit ic1\" type=\"submit\" value=\"Login\">
+        </form>";
+    echo "</div>";
+    // echo "Error getting car_info";
 }
 
 echo "</div>";

@@ -11,49 +11,72 @@ $sql = "SELECT member_id FROM car_owners WHERE email='$user_email' AND password 
 $result = $conn->query($sql);
 
 
-if ($result -> num_rows > 0) {
-        // output data of each row
-        while ($row = $result -> fetch_assoc()) {
-            // echo "<div>";
-            // echo "<h1>" . $row['member_id']. "</h1>" ;
-            // echo "</div>";
-            $mem_id = $row['member_id'];
-        }
-        $sql_2 = "INSERT INTO car_info (car_member_id,brand,model,car_condition,price,description,image) VALUES($mem_id,'$_POST[brand]','$_POST[model]','$_POST[car_cond]','$_POST[price]','$_POST[description]', '$path')";
+if (isset($_POST['submit'])){
 
-        if ($conn->query($sql_2) === TRUE) {
+    // to see whats going on
+    // echo '<pre>';
+    // print_r($_FILES);
+    // print_r($_POST);
+    // echo '</pre>';
 
-            //--------------------alert box needed------//
+    $file_name = $_FILES['image']['name'];
+    $file_type = $_FILES['image']['type'];
+    $file_size = $_FILES['image']['size'];
+    $temp_name = $_FILES['image']['tmp_name'];
 
-            echo "Car record added successfully!";
-        } else {
-            echo "Error adding Car: " . $sql . "<br>" . $conn->error;
-        }
+    $upload_to = 'image/';
+    $path = $upload_to.$file_name;
 
-        if (isset($_POST['submit'])){
+    $file_uploaded = move_uploaded_file($temp_name, $upload_to.$file_name);
 
-            // to see whats going on
-            // echo '<pre>';
-            // print_r($_FILES);
-            // echo '</pre>';
+    if ($result -> num_rows > 0) {
+            // output data of each row
+            while ($row = $result -> fetch_assoc()) {
+                // echo "<div>";
+                // echo "<h1>" . $row['member_id']. "</h1>" ;
+                // echo "</div>";
+                $mem_id = $row['member_id'];
+            }
+            $sql_2 = "INSERT INTO car_info (car_member_id,brand,model,car_condition,price,description,image) VALUES($mem_id,'$_POST[brand]','$_POST[model]','$_POST[car_cond]','$_POST[price]','$_POST[description]', '$path')";
 
-            $file_name = $_FILES['image']['name'];
-            $file_type = $_FILES['image']['type'];
-            $file_size = $_FILES['image']['size'];
-            $temp_name = $_FILES['image']['tmp_name'];
+            if ($conn->query($sql_2) === TRUE) {
+                echo "<div class=\"form\"><div class=\"title\">Information added successfully.</div>";
+                echo "
+                    <form action=\"list_to_member.php\" method=\"GET\">
+                        <input class=\"submit ic1\" type=\"submit\" value=\"View List\">
+                    </form>";
+                echo "</div>";
+                // echo "Car record added successfully!";
+            } else {
+                echo "<div class=\"form\"><div class=\"title\">Error occurred, Try Login in again.</div>";
+                echo "
+                    <form action=\"login_test.php\" method=\"GET\">
+                        <input class=\"submit ic1\" type=\"submit\" value=\"Login\">
+                    </form>";
+                echo "</div>";
+                // echo "Error adding Car: " . $sql . "<br>" . $conn->error;
+            }
 
-            $upload_to = 'images/';
-            $path = $upload_to.$file_name;
-
-            $file_uploaded = move_uploaded_file($temp_name, $upload_to.$file_name);
-
-        } else {
-            echo "incomplete form";
-        }
+    } else {
+        echo "<div class=\"form\"><div class=\"title\">Error with user info, Try Login in again.</div>";
+        echo "
+            <form action=\"login_test.php\" method=\"GET\">
+                <input class=\"submit ic1\" type=\"submit\" value=\"Login\">
+            </form>";
+        echo "</div>";
+        // echo "Error getting member_ID";
+    }
 
 } else {
-    echo "Error getting member_ID";
+    echo "<div class=\"form\"><div class=\"title\">Invalid form, Try again.</div>";
+    echo "
+        <form action=\"car_info.php\" method=\"GET\">
+            <input class=\"submit ic1\" type=\"submit\" value=\"Try Again\">
+        </form>";
+    echo "</div>";
+    // echo "incomplete form";
 }
+
 
 require_once("cont/footer.php");
 $conn->close();

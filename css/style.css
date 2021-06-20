@@ -98,7 +98,7 @@ main {
 /*---------------------------start of card---------------------------*/
 .card-container {
 	display: flex;
-	/* align-items: center; */
+	align-items: center;
 	/* justify-content: space-between; */
   justify-content: center;
 	/* max-width: 1140px; */
@@ -311,10 +311,11 @@ main {
 	background: linear-gradient(to right, #243B55, #141E30);
   border-radius: 20px;
   box-sizing: border-box;
-  height: fitcontent;
+  height: fit-content;
   padding: 30px;
   width: 500px;
   margin-top: 50px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
 }
 
 .title {
@@ -402,7 +403,81 @@ main {
 }
 
 
+/* -----------------------page section titles--------------------------- */
+
+.section-title {
+  background: #141E30;
+	background: -webkit-linear-gradient(to right, #243B55, #141E30);
+	background: linear-gradient(to right, #243B55, #141E30);
+  border-radius: 20px;
+  padding: 20px;
+  width: 100%;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
+  color: #eee;
+  font-size: 22px;
+  font-weight: 400;
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+}
 
 
+/* ----------------------------- select box --------------------------- */
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 0 !important;
+  background: #141E30;
+  background-image: none;
+}
+/* Remove IE arrow */
+select::-ms-expand {
+  display: none;
+}
+/* Custom Select */
+.select {
+  position: relative;
+  display: flex;
+  width: 15em;
+  height: 2.7em;
+  line-height: 3;
+  background: #141E30;
+  overflow: hidden;
+  border-radius: .25em;
+}
+select {
+  flex: 1;
+  padding: 0 .5em;
+  color: #fff;
+  cursor: pointer;
+}
+/* Arrow */
+.select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 1em;
+  background: #243B55;
+  cursor: pointer;
+  pointer-events: none;
+  -webkit-transition: .25s all ease;
+  -o-transition: .25s all ease;
+  transition: .25s all ease;
+}
+/* Transition */
+.select:hover::after {
+  color: #6dd5ed;
+}
+
+.select {
+  padding-left: 60px;
+  /* font-size: ; */
+}
 
 

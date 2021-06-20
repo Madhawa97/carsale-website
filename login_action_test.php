@@ -33,9 +33,13 @@ if ($result->num_rows > 0) {
         echo "Logged as an admin !!!";
         redirect("list_to_admin.php");
     } else {
-        echo "LOGIN FAILED";
+        echo "<div class=\"form\"><div class=\"title\">Login Failed, Try again.</div>";
+        echo "
+            <form action=\"login_test.php\" method=\"GET\">
+                <input class=\"submit ic1\" type=\"submit\" value=\"Try Again\">
+            </form>";
+        echo "</div>";
     }
-    
 }
 
 require_once("cont/footer.php");
