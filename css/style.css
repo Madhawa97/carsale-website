@@ -88,10 +88,28 @@ nav {
     transition: all 0.3s ease 0s;
 }
 
+/* ---------- animation ------------ */
+
 .main-nav li a:hover {
   color: #6dd5ed;
 }
 
+.main-nav li a::after{
+  content: "";
+  /* position: absolute; */
+  display: block;
+  height: 2px;
+  width: 0%;
+  background-color: #6dd5ed;
+  bottom: 5px;
+  margin-top: 1px;
+  transition: all ease-in-out 250ms;
+}
+
+.main-nav li a:hover::after{
+  width: 100%;
+  
+}
 
 /*--------------------------main-------------------------------*/
 main {
