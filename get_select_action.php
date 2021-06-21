@@ -1,7 +1,33 @@
 <?php
 // session_start();
 require_once('cont/connection.php');
-require_once('cont/header.php');
+
+
+
+if (isset($_SESSION["u_email"])){
+    $user_email = $_SESSION["u_email"];
+    $user_password = $_SESSION["u_password"];
+
+    $sql = "SELECT email, password FROM admins WHERE email='$user_email' AND password='$user_password' ";
+    $result = $conn->query($sql);
+
+    $sql_2 = "SELECT email, password FROM car_owners WHERE email='$user_email' AND password='$user_password' ";
+    $result_2 = $conn->query($sql_2);
+
+    if ($result -> num_rows > 0) {
+        require_once('cont/header_admin.php');
+    } else {
+        if ($result_2 -> num_rows > 0) {
+            require_once('cont/header_strip.php');
+        } else {
+            require_once('cont/header.php');
+        }
+    }
+} else {
+    require_once('cont/header.php');
+}
+
+// require_once('cont/header.php');
 // ------------------------------------------------------------------------
 
 $_SESSION["brand"] = $_POST["brand"];
@@ -13,6 +39,7 @@ $user_model = $_SESSION["model"];
 $sql = "SELECT * FROM car_info JOIN car_owners ON car_member_id = member_id WHERE brand='$user_brand' AND model='$user_model' ";
 $result = $conn->query($sql);
 
+echo "<div class=\"section-title\"><div>Search Results : </div></div>";
 echo "<div class='card-container' >";
 if ($result -> num_rows > 0) {
     while ($row = $result -> fetch_assoc()) {

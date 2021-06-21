@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com"> 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
-
+    <script src="https://use.fontawesome.com/44ad8d1954.js"></script>
     <title>Sell-Online</title>
     <!-- <link rel="shortcut icon" type="image/jpg" href="img/favicon.ico" /> -->
 </head>

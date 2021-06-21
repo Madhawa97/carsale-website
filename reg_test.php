@@ -28,7 +28,7 @@
             <label for="email" class="placeholder">E-mail</label>
         </div>
         <div class="input-container ic2">
-            <input required name="password" id="password" class="input" type="password" placeholder=" " maxlength="20"/>
+            <input required name="password" id="id_password" class="input" type="password" placeholder=" " maxlength="20"/>
             <label for="password" class="placeholder">Password</label>
         </div>
         <input class="submit" type="submit" value="Register">

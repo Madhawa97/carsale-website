@@ -65,6 +65,7 @@ nav {
 .logo {
     margin-top: 20px;
     float: left;
+    cursor: pointer;
 }
 
 .main-nav {
@@ -83,6 +84,12 @@ nav {
     padding: 8px 0;
     text-decoration: none;
     color:#eee;
+
+    transition: all 0.3s ease 0s;
+}
+
+.main-nav li a:hover {
+  color: #6dd5ed;
 }
 
 
@@ -90,18 +97,25 @@ nav {
 main {
   display: flex;
   flex-direction: column;
-  max-width: 1140px;
+  /* max-width: 1140px; */
   margin : 0 auto ;
 }
 
 
 /*---------------------------start of card---------------------------*/
+.card-container-main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+
 .card-container {
 	display: flex;
 	align-items: center;
 	/* justify-content: space-between; */
   justify-content: center;
-	/* max-width: 1140px; */
+	max-width: 1140px;
   /* margin : 0 auto ; */
   flex-wrap: wrap;
 
@@ -204,14 +218,15 @@ footer {
 	background: linear-gradient(to right, #243B55, #141E30);
     margin-top: 100px;
     flex-shrink: 0;
+    font-size: 75%;
 }
 
 .footer-div a {
     text-decoration: none;
     color: #ccc;
-    font-weight: 300;
+    font-weight: 600;
     display: inline-block;
-    margin-top: 20px;
+    margin-top: 27px;
     margin-left: 50px;
 }
 
@@ -219,16 +234,17 @@ footer {
 	color: #ddd;
 }
 
-
 .footer-div {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+.footer-div p {
+  font-weight: 300;
+}
 
 /*---footer sticky-----*/
-
 
 .container {
   display: flex;
@@ -247,7 +263,6 @@ footer {
 main {
   flex: 1 0 auto;
 }
-
 
 /*-----------------------------forms-----------------------------------------*/
 
@@ -336,7 +351,7 @@ main {
 }
 
 .submit {
-  background-color: #2594ad;
+  background-color: #2a4564;
   border-radius: 12px;
   border: 0;
   box-sizing: border-box;
@@ -348,10 +363,15 @@ main {
   /* outline: 0; */
   text-align: center;
   width: 100%;
+  transition: 0.4s;
 }
 
-.submit:active {
-  background-color: #6dd5ed;
+/* .submit:active {
+  background-color: #;
+} */
+
+.submit:hover {
+  background-color: #141E30;
 }
 
 
@@ -372,7 +392,6 @@ main {
   display: flex;
   justify-content: center;
 }
-
 
 /* ----------------------------- select box --------------------------- */
 
@@ -443,5 +462,129 @@ select {
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
 }
 
+/* -------------------------- list to admin ---------------------------------------- */
 
-/* -------------------------- search area ---------------------------------------- */
+#list-admin {
+  color: #eee;
+  /* max-width: 100%; */
+  width: 100%;
+  font-weight: 600;
+}
+
+/* ------------------------------- hero ------------------------------------- */
+
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 100vw;
+
+}
+
+.hero {
+  /* background-color: #65657b; */
+  background-image:linear-gradient(to right, rgba(0, 0, 0, 0.304), rgba(0,0,0,.5) ),
+    url('../image/mclaren_765lt_2021-2560x1440.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 80vh;
+  width: 100vw;
+  min-height: 700px;
+  margin-right: 0px;
+}
+
+/* ----------animation------ */
+/* .hero {
+  transition: 0s;
+  animation-name: animate;
+  animation-direction: alternate-reverse;
+  animation-duration: 100s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes animate {
+  0%{
+    background-image: url('../image/mclaren_765lt_2021-2560x1440.jpg');
+  }
+  20%{
+    background-image: url('../image/porschegt2.jpg');
+  }
+  40%{
+    background-image: url('../image/toyotasupra.jpg');
+  }
+  60%{
+    background-image: url('../image/Ferrari-F40-Ferrari-Car-Desktop-Wallpapers-Free-Download.jpg');
+  }
+  80%{
+    background-image: url('../image/teslas.jpg');
+  }
+  100%{
+    background-image: url('../image/mclaren_765lt_2021-2560x1440.jpg');
+  }
+} */
+
+/* ------------end of animation --- */
+
+.hero-button {
+  margin-top: -75px;
+  height: 150px;
+  width: 150px;
+  background-color: #141E30;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 80px;
+  color: #eee;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
+  text-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
+}
+
+.hero-button a {
+  text-decoration: none;
+  color: #eee;
+}
+
+.hero-button:hover {
+  background-color: #243B55;
+}
+
+#front-page-search {
+  float: right;
+  position: relative;
+  top: 18%;
+  right: 8%;
+}
+
+.hero h1 {
+  position: relative;
+  float: left;
+  top: 30%;
+  left: 8%;
+  font-family: 'Montserrat';
+  color: #eee;
+  font-weight: 700;
+  font-size: 450%;
+  text-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
+}
+
+.hero h1 span {
+  color: #6dd5ed;
+}
+
+
+/* ------------------------- end of hero --------------------- */
+
+/* ---------separator --------------------- */
+
+.separator {
+  margin-top: 90px;
+  background-color: #243B55;
+  height: 5px;
+  width: 100vw;
+  max-width: 1140px;
+}

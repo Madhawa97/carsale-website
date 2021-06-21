@@ -15,6 +15,7 @@ if ($result -> num_rows > 0) {
     $sql_2 = "SELECT * FROM car_owners";
     $result_2 = $conn->query($sql_2);
 
+    echo "<div class=\"form\" id=\"list-admin\">";
     if ($result_2 -> num_rows > 0) {
         // output data of each row
         echo "<table border = 1>
@@ -51,7 +52,7 @@ if ($result -> num_rows > 0) {
         echo "</div>";
         // echo "Error getting member's list";
     }
-
+    echo "</div>";
 } else {
     echo "<div class=\"form\"><div class=\"title\">Admin authentication error.</div>";
     echo "
