@@ -34,11 +34,10 @@ if (isset($_POST['submit'])){
             while ($row = $result -> fetch_assoc()) {
                 $mem_id = $row['member_id'];
             }
-
             //-----------add slashes before quotes----------------
-            $_description = addslashes($_POST["description"]);
-            $_model = addslashes($_POST["model"]);
-            $_brand = addslashes($_POST["brand"]);
+            $description = addslashes($_POST["description"]);
+            $model = addslashes($_POST["model"]);
+            $brand = addslashes($_POST["brand"]);
 
             // $sql_2 = "INSERT INTO car_info (car_member_id,brand,model,car_condition,price,description,image) VALUES($mem_id,'$_brand','$_model','$_POST[car_cond]','$_POST[price]','$_description', '$path')";
             $sql_2 = "INSERT INTO car_info (car_member_id,brand,model,car_condition,price,description,image) VALUES($mem_id,'$brand','$model','$_POST[car_cond]','$_POST[price]','$description', '$path')";

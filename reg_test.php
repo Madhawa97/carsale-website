@@ -29,9 +29,22 @@
         </div>
         <div class="input-container ic2">
             <input required name="password" id="id_password" class="input" type="password" placeholder=" " maxlength="20"/>
+            <i class="far fa-eye" id="togglePassword" style="cursor: pointer;"></i>
             <label for="password" class="placeholder">Password</label>
         </div>
         <input class="submit" type="submit" value="Register">
     </form>
 </div>
+<script>
+const togglePassword = document.querySelector('#togglePassword');
+    const password = document.querySelector('#id_password');
+
+    togglePassword.addEventListener('click', function (e) {
+    // toggle the type attribute
+        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+        password.setAttribute('type', type);
+        // toggle the eye slash icon
+        this.classList.toggle('fa-eye-slash');
+    });
+</script>
 <?php require_once('cont/footer.php'); ?>

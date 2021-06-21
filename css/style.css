@@ -588,3 +588,13 @@ select {
   width: 100vw;
   max-width: 1140px;
 }
+
+
+/* ------------ password-------------- */
+
+#togglePassword{
+    position: relative;
+    top: -36px;
+    left: 390px;
+    color: #65657b;
+}
