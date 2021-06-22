@@ -503,7 +503,7 @@ select {
 .hero {
   /* background-color: #65657b; */
   background-image:linear-gradient(to right, rgba(0, 0, 0, 0.304), rgba(0,0,0,.5) ),
-    url('../image/mclaren_765lt_2021-2560x1440.jpg');
+    url('../image/m720.jpg');
   background-size: cover;
   background-position: center;
   height: 80vh;
